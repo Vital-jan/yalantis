@@ -1,0 +1,44 @@
+body {
+  font-family: Helvetica;
+  position: relative;
+  * {
+    position: relative;
+  }
+}
+.main {
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+  background-image: linear-gradient(to bottom, rgb(250, 252, 134), rgb(182, 156, 71));
+  ul {
+    padding: 0;
+    li {
+      width: 90%;
+      margin: 5px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 8px;
+      list-style-type: none;
+      color: #fff;
+      border-radius: 5px;
+      .count {
+        font-size: .7em;
+        text-align: center;
+        width: 2em;
+      }
+      &.bgc-02 {
+        background-color: gray;
+      }
+      &.bgc-36 {
+        background-color: blue;
+      }
+      &.bgc-710 {
+        background-color: green;
+      }
+      &.bgc-11 {
+        background-color: red;
+      }
+    }
+  }
+}

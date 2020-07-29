@@ -1,0 +1,61 @@
+body {
+  font-family: Helvetica;
+  position: relative;
+}
+
+body * {
+  position: relative;
+}
+
+.main {
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafc86), to(#b69c47));
+  background-image: linear-gradient(to bottom, #fafc86, #b69c47);
+}
+
+.main ul {
+  padding: 0;
+}
+
+.main ul li {
+  width: 90%;
+  margin: 5px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px 8px;
+  list-style-type: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.main ul li .count {
+  font-size: .7em;
+  text-align: center;
+  width: 2em;
+}
+
+.main ul li.bgc-02 {
+  background-color: gray;
+}
+
+.main ul li.bgc-36 {
+  background-color: blue;
+}
+
+.main ul li.bgc-710 {
+  background-color: green;
+}
+
+.main ul li.bgc-11 {
+  background-color: red;
+}
+/*# sourceMappingURL=styles.css.map */
