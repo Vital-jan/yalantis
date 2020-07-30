@@ -6,13 +6,20 @@ body {
   }
 }
 .main {
+  position: relative;
   width: 50%;
   margin: 30px auto;
   padding: 20px;
   background-image: linear-gradient(to bottom, rgb(250, 252, 134), rgb(182, 156, 71));
-  ul {
+  .month-list {
     padding: 0;
+    position: relative;
     li {
+      position: relative;
+      user-select: none;
+      &:hover {
+        opacity: .6;
+      }
       width: 90%;
       margin: 5px auto;
       display: flex;
@@ -40,5 +47,27 @@ body {
         background-color: red;
       }
     }
+  }
+}
+.human {
+  position: absolute;
+  border-radius: 5px;
+  z-index: 2;
+  background-color: rgb(245, 206, 206);
+  padding: 10px 10px;
+  top: -20px;
+  right: 20px;
+  display: none;
+  &:before {
+    position: absolute;
+    left: -17px;
+    top: 0;
+    border: 10px solid rgb(245, 206, 206);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    content:"";
+  }
+  li {
+    list-style-type: none;
   }
 }

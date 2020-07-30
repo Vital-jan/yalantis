@@ -13,9 +13,10 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <ul class="human">
+  </ul>
   <div class="main">
-    <ul>
-
+    <ul class="month-list">
     </ul>
   </div>
 </body>
@@ -38,7 +39,7 @@
       });
   }
 
-  const action = (response)=>{
+  const action = (response)=>{ // action after users list loaded
     const monthList = ['Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень']; // month name array
 
     response.forEach((item)=>{ // create month field
@@ -52,15 +53,26 @@
         else count[item.month] = 1;
     })
 
-    const list = document.querySelector('.main ul'); // month list DOM element
+    const list = document.querySelector('.month-list  '); // month list DOM element
 
     for (n = 1; n <= 12; n++) { // fill month list content
-      // elemClass = count[n] > 2 ? 'bgc-36' : 'bgc-02';
-      // elemClass = count[n] > 6 ? count[n] > 11 ? 'bgc-11' : 'bgc-710' : elemClass;
       elemClass = count[n] < 2 ? 'bgc-02' : count[n] < 7 ? 'bgc-36' : count[n] < 11 ? 'bgc-710' : 'bgc-11';
 
-      list.innerHTML += `<li class="${elemClass}"><span>${monthList[n-1]}</span><span class="count">${count[n]}</span></li>`;
+      list.innerHTML += `<li data-monthnumber="${n}" class="${elemClass} month"><span>${monthList[n-1]}</span><span class="count">${count[n]}</span></li>`;
     }
+    document.querySelectorAll('.month').forEach((item)=>{ // mouseenter hundler 
+      const list = document.querySelector('.human');
+      item.addEventListener('mouseenter', (event)=>{
+        let monthDob = response.filter((item)=>item.month == +event.target.dataset.monthnumber); // users born at current month array
+        list.innerHTML = '';
+        monthDob.forEach((item)=>{
+          list.innerHTML += `<li>${item.firstName} ${item.lastName}</li>`; // create DOM elements
+        })
+        list.style.top = event.target.getBoundingClientRect().y - 30 + 'px'; // set users list position
+        list.style.display = 'block';
+      })
+      item.addEventListener('mouseleave', (event)=>{list.style.display = 'none'});
+    })
   } // end action()
 
   ajax("https://yalantis-react-school-api.yalantis.com/api/task0/users", action);
